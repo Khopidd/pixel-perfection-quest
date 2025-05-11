@@ -1,6 +1,5 @@
 
 import React, { useState } from "react";
-import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { motion } from "framer-motion";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -10,6 +9,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 
 export default function SaveMoney() {
   const [date, setDate] = useState<Date | undefined>(new Date());
@@ -35,7 +35,8 @@ export default function SaveMoney() {
         `}
       </style>
       
-      <DashboardLayout>
+      <div>
+        <DashboardLayout />
         <main className="p-8 max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -109,7 +110,7 @@ export default function SaveMoney() {
             </form>
           </motion.div>
         </main>
-      </DashboardLayout>
+      </div>
 
       {/* Confirmation Dialog */}
       <Dialog open={isConfirmDialogOpen} onOpenChange={setIsConfirmDialogOpen}>
