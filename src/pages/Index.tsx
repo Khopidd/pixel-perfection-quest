@@ -1,7 +1,6 @@
 
 import React from "react";
 import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
-import Head from "next/head";
 
 export default function Index() {
   return (
