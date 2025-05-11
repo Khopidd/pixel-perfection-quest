@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
+import { useNavigate } from "react-router-dom";
 import {
   Popover,
   PopoverContent,
@@ -19,6 +20,17 @@ export default function SaveMoney() {
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [amount, setAmount] = useState("");
   const [currentMonth, setCurrentMonth] = useState<Date>(new Date());
+  const navigate = useNavigate();
+  
+  // Check if user is logged in
+  useEffect(() => {
+    // In a real app, this would check a token or session
+    // For this demo, we're just checking if they've bypassed the login
+    const isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
+    if (!isLoggedIn) {
+      navigate("/sign-in");
+    }
+  }, [navigate]);
   
   // Sample transaction history data
   const transactions = [
