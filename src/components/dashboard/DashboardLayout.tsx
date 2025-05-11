@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Sidebar } from "./Sidebar";
@@ -7,9 +6,12 @@ import { StatCard } from "./StatCard";
 import { AnalyticsChart } from "./AnalyticsChart";
 import { Calendar } from "./Calendar";
 import { FinancialTable } from "./FinancialTable";
+import { useNavigate } from "react-router-dom";
 
 export function DashboardLayout() {
   // Financial records data
+  const navigate = useNavigate();
+  
   const financialRecords = [
     {
       id: 1,
@@ -49,6 +51,10 @@ export function DashboardLayout() {
     },
   ];
 
+  const handleAddRevenue = () => {
+    navigate("/save-money");
+  };
+
   return (
     <div className="flex min-h-screen bg-slate-50 font-['Outfit']">
       <Sidebar />
@@ -85,6 +91,7 @@ export function DashboardLayout() {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className="flex items-center gap-2 bg-[#5BCFC5] px-3 py-2 rounded-lg cursor-pointer"
+                    onClick={handleAddRevenue}
                   >
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M9 3.75V14.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
