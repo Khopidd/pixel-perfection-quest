@@ -25,12 +25,15 @@ export default function SaveMoney() {
 
   return (
     <>
-      <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
-        body {
-          font-family: 'Outfit', sans-serif;
-        }
-      `}</style>
+      {/* Use standard style tag for global styles */}
+      <style type="text/css">
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+          body {
+            font-family: 'Outfit', sans-serif;
+          }
+        `}
+      </style>
       
       <DashboardLayout>
         <main className="p-8 max-w-5xl mx-auto">
@@ -86,7 +89,6 @@ export default function SaveMoney() {
                       selected={date}
                       onSelect={setDate}
                       initialFocus
-                      className={cn("p-3 pointer-events-auto")}
                     />
                   </PopoverContent>
                 </Popover>
