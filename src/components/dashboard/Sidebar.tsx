@@ -1,21 +1,35 @@
+
 import React from "react";
+import { motion } from "framer-motion";
 
 export function Sidebar() {
   return (
-    <aside className="w-[250px] bg-white border border-slate-100 max-md:hidden">
-      <div className="p-8">
+    <aside className="w-[250px] bg-white border border-slate-100 h-screen sticky top-0 left-0 z-20 max-md:hidden">
+      <motion.div 
+        initial={{ opacity: 0, x: -20 }} 
+        animate={{ opacity: 1, x: 0 }} 
+        transition={{ duration: 0.5 }}
+        className="p-8"
+      >
         <div className="flex items-center gap-3">
-          <div className="flex w-[33px] h-[33px] justify-center items-center bg-blue-600 p-1.5 rounded-lg">
+          <motion.div 
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="flex w-[33px] h-[33px] justify-center items-center bg-blue-600 p-1.5 rounded-lg"
+          >
             <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b55cd74d0f545ca25a5af7269567e040096e9ca6" alt="Logo" className="w-[22px] h-[22px]" />
-          </div>
+          </motion.div>
           <div className="text-[#272742] text-[26px] font-bold leading-[32.5px] tracking-[-0.29px]">
             Comfinotes
           </div>
         </div>
-      </div>
+      </motion.div>
       <div className="h-px bg-slate-100 w-full" />
       <nav className="flex flex-col gap-2 p-4">
-        <div className="flex items-center gap-4 bg-slate-50 h-12 pr-4 rounded-[0px_12px_12px_0px]">
+        <motion.div 
+          whileHover={{ scale: 1.02 }}
+          className="flex items-center gap-4 bg-slate-50 h-12 pr-4 rounded-[0px_12px_12px_0px]"
+        >
           <div className="w-1 h-12 bg-blue-600 rounded-[0px_4px_4px_0px]" />
           <div>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,8 +44,11 @@ export function Sidebar() {
             </svg>
           </div>
           <div className="text-blue-600 text-sm font-semibold">Dashboard</div>
-        </div>
-        <div className="flex items-center gap-4 h-12 pr-4 rounded-xl">
+        </motion.div>
+        <motion.div 
+          whileHover={{ scale: 1.02 }}
+          className="flex items-center gap-4 h-12 pr-4 rounded-xl cursor-pointer"
+        >
           <div className="w-1 h-8 bg-blue-600 opacity-0 rounded-[0px_4px_4px_0px]" />
           <div>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -42,8 +59,9 @@ export function Sidebar() {
             </svg>
           </div>
           <div className="text-slate-500 text-sm font-medium">Komunitas</div>
-        </div>
+        </motion.div>
       </nav>
     </aside>
   );
 }
+
